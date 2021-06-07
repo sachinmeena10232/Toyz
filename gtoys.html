@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!--jQuery library-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!--Latest compiled and minified JavaScript-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Toyz</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css.map">
+    <style>
+        .header {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            padding: 0 1rem
+        }
+        
+        .header__upper,
+        .header_nav_toyz {
+            max-width: 130rem;
+            margin: auto
+        }
+        
+        @media only screen and (max-width: 68.75em) {
+            .header__upper,
+            .header_nav_toyz {
+                max-width: 90rem
+            }
+        }
+        
+        .header__upper {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            padding: 1.8rem 0;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap
+        }
+        
+        @media only screen and (max-width: 37.5em) {
+            .header__upper {
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center
+            }
+        }
+        
+        .header__social {
+            margin-right: 2rem;
+            list-style: none;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center
+        }
+        
+        .header__social-link {
+            font-size: 1.4rem;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            padding: 0.5rem;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            border: 2px solid white;
+            -webkit-transition: background 0.3s ease;
+            transition: background 0.3s ease;
+            background-color: #3b5999
+        }
+        
+        .header__social-link:not(:last-child) {
+            margin-right: 1rem
+        }
+        
+        .header__social-link:hover,
+        .header__social-link:focus {
+            color: #222;
+            background-color: #fae721
+        }
+        
+        .header__contact {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center
+        }
+        
+        .header__email {
+            color: white;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            margin-right: 1rem;
+            cursor: pointer
+        }
+        
+        .header__email span {
+            margin-right: 0.5rem;
+            font-size: 2rem
+        }
+        
+        .header__btns {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex
+        }
+        
+        .header_nav_toyz {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            padding: 0.5rem;
+            border-radius: 20rem;
+            background-color: #fff;
+            margin: 3% auto;
+        }
+        
+        .header_nav_toyz .btn--toggler {
+            font-size: 2rem;
+            display: none
+        }
+        
+        @media only screen and (max-width: 56.25em) {
+            .header_nav_toyz .btn--toggler {
+                display: block;
+                z-index: 10
+            }
+            .header_nav_toyz .list {
+                -webkit-transition: -webkit-transform 0.3s cubic-bezier(1, 0, 0, 1);
+                transition: -webkit-transform 0.3s cubic-bezier(1, 0, 0, 1);
+                transition: transform 0.3s cubic-bezier(1, 0, 0, 1);
+                transition: transform 0.3s cubic-bezier(1, 0, 0, 1), -webkit-transform 0.3s cubic-bezier(1, 0, 0, 1);
+                -webkit-transform: translateX(-100%);
+                transform: translateX(-100%);
+                position: absolute;
+                top: 0;
+                left: 0;
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+                background-color: #fff;
+                width: 35vw;
+                height: 50vh
+            }
+            .header_nav_toyz .list.active {
+                -webkit-transform: translate(0);
+                transform: translate(0)
+            }
+            .header_nav_toyz .list--1 {
+                -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                justify-content: space-between;
+                padding-top: 25vh;
+                padding-bottom: 1rem
+            }
+            .header_nav_toyz .list--2 {
+                padding-top: 1rem;
+                -webkit-box-pack: justify;
+                -ms-flex-pack: justify;
+                justify-content: space-between;
+                padding-bottom: 25vh;
+                top: 50vh
+            }
+        }
+        
+        .header__logo {
+            position: relative;
+            width: 10rem;
+            height: 1rem
+        }
+        
+        .header__logo-img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%)
+        }
+        
+        @media only screen and (max-width: 68.75em) {
+            .header__logo-img {
+                width: 110%
+            }
+        }
+        
+        body {
+            background: url(/images/bg.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .btn {
+            border-radius: 20px, 20px, 20px, 20px;
+            background-color: #B28B15;
+            color: white;
+            width: 175px;
+            height: 40px;
+            font-size: 20px;
+            padding: 10px, 20px;
+            border-radius: 25px;
+        }
+        
+        h1 {
+            font-family: Brush Script MT;
+            font-size: 4em;
+            color: #DC143C;
+        }
+        
+        h2 {
+            font-family: New Century Schoolbook, serif;
+            font-size: 3em;
+            color: #DAA520;
+        }
+        
+        #banner_image {
+            padding-top: 0px;
+            padding-bottom: 150px;
+            text-align: center;
+            color: #f8f8f8;
+            background: url(/images/bg1.jpg) no-repeat center center;
+            background-size: cover;
+            position: relative;
+            height: 400px;
+        }
+        
+        #banner_content {
+            font-family: New Century Schoolbook, serif;
+            position: relative;
+            padding-top: 0;
+            padding-bottom: 6%;
+            margin-top: 12%;
+            margin-bottom: 12%;
+            background-color: rgba(0, 0, 0, );
+            max-width: 660px;
+        }
+        /* .btn--yellow {
+            padding: 1.5rem;
+            color: #222;
+            background-color: #fae721;
+        }
+         */
+        
+        .btn {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            border: none;
+            background-color: transparent;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-size: 1.6rem;
+            border-radius: 20rem;
+            -webkit-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+
+    <link rel="stylesheet" href="/css/style.css" />
+    <script defer src="/js/app.js"></script>
+
+
+    <body>
+        <header class="header">
+            <!-- <div class="header__upper">
+                <ul class="header__social">
+                    <a href="#" class="header__social-link">
+                        <span class="fab fa-facebook-f"></span>
+                    </a>
+                    <a href="#" class="header__social-link">
+                        <span class="fab fa-instagram"></span>
+                    </a>
+                    <a href="#" class="header__social-link">
+                        <span class="fab fa-twitter"></span>
+                    </a>
+                    <a href="#" class="header__social-link">
+                        <span class="fab fa-pinterest-p"></span>
+                    </a>
+                    <a href="#" class="header__social-link">
+                        <span class="fab fa-tumblr"></span>
+                    </a>
+                </ul>
+                <div class="header__contact">
+                    <div class="header__email">
+                        <span class="far fa-envelope"></span>info@gmail.com
+                    </div>
+                    <button class="btn btn--red">My Account</button>
+                </div>
+            </div> -->
+            <nav class="header_nav_toyz">
+                <div class="header__btns">
+                    <button class="btn btn--toggler">
+            <span class="fa fa-bars"></span>
+          </button>
+                    <!-- <button class="btn btn--yellow"> -->
+                    <span class="fa fa-search"></span>
+                    </button>
+                </div>
+                <ul class="list list--1 list--row">
+                    <a href="#" class="list__link">Toy</a>
+                    <a href="#" class="list__link">Collection</a>
+                    <a href="#" class="list__link">
+            Kids<span class="list__marker list__marker--sale">Sale</span>
+          </a>
+                    <a href="#" class="list__link">Accesories<span class="list__marker list__marker--new"
+              >New</span
+            ></a
+          >
+        </ul>
+        <figure class="header__logo">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0199/7497/9684/files/little_baby_large.png?v=1621600430"
+            alt="LOGO"
+            class="header__logo-img"
+          />
+        </figure>
+        <ul class="list list--2 list--row">
+          <a href="#" class="list__link">Include Pages</a>
+                    <a href="#" class="list__link">Blog</a>
+                    <a href="#" class="list__link">
+            About Us<span class="list__marker list__marker--new">New</span>
+          </a>
+                    <a href="#" class="list__link">
+            Accesories<span class="list__marker list__marker--hot">Hot</span>
+          </a>
+                </ul>
+                <!-- <button class="btn btn--yellow"> -->
+                <span class="fa fa-shopping-cart"></span>
+                </button>
+            </nav>
+
+            <!-- Content Section -->
+
+            <div id="banner_image">
+                <div class="container">
+                    <center>
+                        <div id="banner_content">
+                            <h1> So many toys...</h1>
+
+                        </div>
+                    </center>
+                </div>
+            </div>
+            <div class="container " style="padding-top:10px">
+
+                <center>
+                    <h2>Our Best Toys</h2>
+                    <center>
+
+
+            </div>
+            <div class="container" style="padding-top:10px">
+                <div class="row">
+
+                    <div class="col-lg-4">
+                        <div class="thumbnail">
+                            <img src="/images/1.jpg">
+                            <div class="caption">
+                                <p>
+                                    <h4><b style="float:left">Barbie dolls</b>
+                                        <b style="float:right">from $280</b></h4>
+                                </p>
+                                <br><br>
+                                <center><a href="" class="btn btn-primary btn-block">View more</a></center>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <div class="thumbnail">
+                            <img src="/images/2.jpg" width="cover">
+                            <div class="caption">
+                                <p>
+                                    <h4><b style="float:left">Teddy Toys</b>
+                                        <b style="float:right">from $480</b></h4>
+                                </p>
+                                <br><br>
+                                <center><a href="" class="btn btn-primary btn-block">View more</a></center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="thumbnail">
+                            <img src="/images/3.jpg">
+                            <div class="caption">
+                                <p>
+                                    <h4><b style="float:left">Wooden Hanoi</b>
+                                        <b style="float:right">from $550</b></h4>
+                                </p>
+                                <br><br>
+                                <center><a href="" class="btn btn-primary btn-block">View more</a></center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="padding-top:10px">
+                <div class="row">
+
+                    <div class="col-lg-4">
+                        <div class="thumbnail">
+                            <img src="/images/4.jpg">
+                            <div class="caption">
+                                <p>
+                                    <h4><b style="float:left">Puppet Toys</b>
+                                        <b style="float:right">from $380</b></h4>
+                                </p>
+                                <br><br>
+                                <center><a href="" class="btn btn-primary btn-block">View more</a></center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="thumbnail">
+                            <img src="/images/5.jpg">
+                            <div class="caption">
+                                <p>
+                                    <h4><b style="float:left">Clay Toys</b>
+                                        <b style="float:right">from $520</b></h4>
+                                </p>
+                                <br><br>
+                                <center><a href="" class="btn btn-primary btn-block">View more</a></center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="thumbnail">
+                            <img src="/images/6.jpg">
+                            <div class="caption">
+                                <p>
+                                    <h4><b style="float:left">Baby Cars</b>
+                                        <b style="float:right">from $600</b></h4>
+                                </p>
+                                <br><br>
+                                <center><a href="" class="btn btn-primary btn-block">View more</a></center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container" style="padding-top:10px;padding-bottom:30px">
+                <div class="row">
+
+                    <div class="col-lg-4">
+                        <div class="thumbnail">
+                            <img src="/images/7.jpg">
+                            <div class="caption">
+                                <p>
+                                    <h4><b style="float:left">Animal Toys</b>
+                                        <b style="float:right">from $380</b></h4>
+                                </p>
+                                <br><br>
+                                <center><a href="" class="btn btn-primary btn-block">View more</a></center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="thumbnail">
+                            <img src="/images/8.jpg">
+                            <div class="caption">
+                                <p>
+                                    <h4><b style="float:left">Toy Drums</b>
+                                        <b style="float:right">from $520</b></h4>
+                                </p>
+                                <br><br>
+                                <center><a href="" class="btn btn-primary btn-block">View more</a></center>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="thumbnail">
+                            <img src="/images/9.jpg">
+                            <div class="caption">
+                                <p>
+                                    <h4><b style="float:left">Bouncing Balls</b>
+                                        <b style="float:right">from $600</b></h4>
+                                </p>
+                                <br><br>
+                                <center><a href="" class="btn btn-primary btn-block">View more</a></center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <footer style="background-color: black;color: white; width: 100%; display: flex;align-items: center; justify-content: center;">
+                <p> All Rights Reserved &copy;</p>
+
+            </footer>
+    </body>
+
+</html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ShowItem </title>
+
+    <!-- VENDORS -->
+    <script defer src="https://kit.fontawesome.com/a4eb31c874.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <script defer src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Work Sans:300,400,500,600,700,800" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&display=swap" rel="stylesheet">
+
+    <!-- MY DEFINED -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <script defer src="/js/app.js"></script>
+</head>
+
+<style>
+    .header__nav {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 0.5rem;
+        border-radius: 20rem;
+        background-color: #babaea;
+    }
+    
+    .content {
+        display: flex;
+        /* background-color: #222; */
+        width: 80%;
+        margin: 5% auto;
+    }
+    
+    .content-left {
+        display: flex;
+        flex-direction: column;
+        /* background-color: #3b5999; */
+        width: 40%;
+        margin: 3%;
+    }
+    
+    .content-right {
+        display: flex;
+        flex-direction: column;
+        /* background-color: aqua; */
+        font-size: 3rem;
+        width: 53%;
+    }
+    
+    .lin-height {
+        line-height: 6rem;
+    }
+    
+    .content-right h4 {
+        font-size: 1.8rem;
+    }
+    
+    .content-right p {
+        font-size: 1.5rem;
+    }
+    
+    .btnbuy {
+        font-size: 3rem;
+        margin-top: 10%;
+        margin-right: 5%;
+        background: #f44336;
+        border: 2px solid black;
+        border-radius: 10px;
+        padding: 1%;
+        color: wheat;
+        font-family: 'Font Awesome 5 Brands';
+    }
+    
+    .btnbuy:hover {
+        background-color: red;
+        cursor: pointer;
+        transition-duration: 1s;
+    }
+    
+    #addtocart {
+        background-color: rgb(35 180 245);
+    }
+    
+    #addtocart:hover {
+        background-color: rgb(35 80 245);
+        transition-duration: 1s;
+        cursor: pointer;
+    }
+    
+    .content-left img {
+        height: 100%;
+        width: 92%;
+    }
+    
+    .size {
+        margin-top: 4%;
+    }
+    
+    #size {
+        border: 2px solid black;
+        font-family: 'Baloo Bhai 2';
+        padding: 0.5%;
+    }
+    
+    #size:hover {
+        background-color: rgb(63, 39, 39);
+        color: white;
+        cursor: pointer;
+    }
+    
+    .below-content {
+        width: 60%;
+        margin: 10rem auto;
+    }
+    
+    .below-content h4 {
+        font-size: 2.7rem;
+        font-family: 'Baloo Bhai 2', cursive;
+    }
+    
+    .peoplealsosee {
+        width: 80%;
+        margin: auto;
+        font-family: 'Baloo Bhai 2', cursive;
+    }
+    
+    .row-toy {
+        display: flex;
+        flex-direction: row;
+        width: 70%;
+        margin: auto;
+        font-family: 'Baloo Bhai 2', cursive;
+    }
+    
+    .card-toy {
+        /* background-color: red; */
+        width: 36%;
+        padding: 1rem;
+        padding-bottom: 4%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .card-p {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .card-toy img {
+        margin: auto;
+        margin-top: 5%;
+        height: 63%;
+        width: 75%;
+    }
+    
+    .card-toy img:hover {
+        cursor: pointer;
+    }
+    
+    @media screen and (max-width: 900px) {
+        .content {
+            flex-direction: column;
+        }
+        .content-right {
+            width: 80%;
+            margin: auto;
+        }
+        .content-left {
+            width: 80%;
+            margin: auto;
+        }
+    }
+    
+    @media screen and (max-width: 700px) {
+        .row-toy {
+            flex-direction: column;
+        }
+        .card-toy {
+            margin: auto;
+            width: 80%;
+        }
+    }
+</style>
+
+<body>
+    <header class="header">
+        <div class="header__upper">
+            <ul class="header__social">
+                <a href="#" class="header__social-link">
+                    <span class="fab fa-facebook-f"></span>
+                </a>
+                <a href="#" class="header__social-link">
+                    <span class="fab fa-instagram"></span>
+                </a>
+                <a href="#" class="header__social-link">
+                    <span class="fab fa-twitter"></span>
+                </a>
+                <a href="#" class="header__social-link">
+                    <span class="fab fa-pinterest-p"></span>
+                </a>
+                <a href="#" class="header__social-link">
+                    <span class="fab fa-tumblr"></span>
+                </a>
+            </ul>
+            <div class="header__contact">
+                <div class="header__email">
+                    <span class="far fa-envelope"></span>info@gmail.com
+                </div>
+                <button class="btn btn--red">My Account</button>
+            </div>
+        </div>
+        <nav class="header__nav">
+            <div class="header__btns">
+                <button class="btn btn--toggler">
+            <span class="fa fa-bars"></span>
+          </button>
+                <button class="btn btn--yellow">
+            <span class="fa fa-search"></span>
+          </button>
+            </div>
+            <ul class="list list--1 list--row">
+                <a href="#" class="list__link">Toy</a>
+                <a href="#" class="list__link">Collection</a>
+                <a href="#" class="list__link">
+            Kids<span class="list__marker list__marker--sale">Sale</span>
+          </a>
+                <a href="#" class="list__link">Accesories<span class="list__marker list__marker--new"
+              >New</span
+            ></a
+          >
+        </ul>
+        <figure class="header__logo">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0199/7497/9684/files/little_baby_large.png?v=1621600430"
+            alt="LOGO"
+            class="header__logo-img"
+          />
+        </figure>
+        <ul class="list list--2 list--row">
+          <a href="#" class="list__link">Include Pages</a>
+                <a href="#" class="list__link">Blog</a>
+                <a href="#" class="list__link">
+            About Us<span class="list__marker list__marker--new">New</span>
+          </a>
+                <a href="#" class="list__link">
+            Accesories<span class="list__marker list__marker--hot">Hot</span>
+          </a>
+            </ul>
+            <button class="btn btn--yellow">
+          <span class="fa fa-shopping-cart"></span>
+        </button>
+        </nav>
+
+
+
+        <!-- Content Section  -->
+
+        <div class="content">
+            <div class="content-left">
+                <img src="/images/toycar.jpg" alt="Toycar">
+
+            </div>
+            <div class="content-right">
+                <div class="lin-height">
+
+                    <h2>ToyCar</h2>
+                </div>
+                <h2>249$</h2>
+                <br>
+                <h4>Available Offers</h4>
+                <ul>
+
+                    <li>
+                        <p>Bank Offer 5% Unlimited Cashback on Bank Credit Card T&C</p>
+                    </li>
+                    <li>
+                        <p>Bank Offer₹20 Off on first prepaid transaction using UPI payments, minimum order value ₹750/- T&C</p>
+                    </li>
+                </ul>
+                <div class="size">
+                    Size: <span id="size">One Size</span>
+                </div>
+                <div class="buttonz">
+
+                    <button class="btnbuy" id="addtocart">ADD TO CART</button>
+                    <button class="btnbuy">BUY NOW</button>
+                </div>
+            </div>
+        </div>
+        <div class="below-content">
+            <h4>Description:</h4>
+            <br>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et iusto similique enim id cupiditate quae incidunt unde voluptatibus itaque ratione, voluptate perspiciatis nobis est mollitia, deserunt ipsum culpa odio. Sapiente rerum optio cupiditate
+                numquam repellendus, iure autem nulla delectus laudantium fugiat illum placeat saepe veritatis aspernatur recusandae sit doloribus praesentium tempore voluptates soluta nesciunt. Quod quasi perspiciatis autem vero ea repudiandae eaque
+                ipsam et veritatis eligendi possimus tenetur suscipit dicta expedita incidunt ducimus maiores voluptates, odit sit sapiente provident facere nam dolore nemo? Error aspernatur architecto possimus labore, expedita, explicabo dolorem nemo
+                pariatur tenetur molestias deleniti mollitia sed neque tempora iste.</p>
+
+        </div>
+        <div class="peoplealsosee">
+
+            <h2>People also see:</h2>
+        </div>
+
+
+
+
+        <div class="row-toy">
+            <div class="card-toy">
+                <img src="/images/1.jpg">
+                <div class="card-p">
+
+                    <p>
+                        <h4><b>Barbie dolls</b></h4>
+                        <h4><b>from $28</b></h4>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card-toy">
+                <img src="/images/2.jpg">
+                <div class="card-p">
+
+                    <p>
+                        <h4><b>Teddy</b></h4>
+                        <h4><b>from $18</b></h4>
+                    </p>
+                </div>
+            </div>
+
+            <div class="card-toy">
+                <img src="/images/5.jpg">
+                <div class="card-p">
+
+                    <p>
+
+                        <h4><b>Butterflies</b></h4>
+                        <h4><b>from $3  </b></h4>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <footer style="background-color: black;color: white; width: 100%; display: flex;align-items: center; justify-content: center;">
+            <p> All Rights Reserved &copy;</p>
+
+        </footer>
+
+
+</body>
+
+</html>
